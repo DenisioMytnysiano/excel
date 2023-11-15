@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        
+    </PropertyGroup>
+
+
+    <ItemGroup>
+      <PackageReference Include="FastEndpoints" Version="5.18.0" />
+      <PackageReference Include="FluentValidation" Version="11.7.1" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\Excel.Core\Excel.Core.csproj" />
+      <ProjectReference Include="..\Excel.Infrastructure\Excel.Infrastructure.csproj" />
+
+
+    </ItemGroup>
+
+
+
+
+
+
+
+</Project>

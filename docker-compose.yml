@@ -1,0 +1,39 @@
+version: '3.1'
+
+services:
+
+  excel:
+    container_name: excel-api
+    build:
+      context: .
+      dockerfile: ./Excel.API/Dockerfile
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      ASPNETCORE_URLS: http://+:80
+      Mongo__Port: 27017
+      Mongo__Host: mongo
+      Mongo__UserName: root
+      Mongo__Password: example
+    depends_on:
+      - mongo
+    networks:
+      - excel_network
+
+  mongo:
+    container_name: excel-db
+    image: mongo:6.0
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example  
+    ports:
+      - 27017:27017  
+    volumes:
+      - ./mongo/data:/data/db
+    networks:
+      - excel_network
+
+networks:
+  excel_network:
